@@ -33,33 +33,33 @@ Mỗi buổi học học viên sẽ được giao các bài tập thực hành g
 
 7. Input/Output của chương trình
 
-8. Cấu trúc dữ liệu *list* và *map*
+8. Cấu trúc dữ liệu *array*, *list* và *map*
 
-9. Viết ứng dụng từ điển *vndict*
+9. Đọc/ghi file với Java
 
 ### Bài 4:
 
 10. *Collection Framework* trong *java.util*
 
-11. Hoàn thiện ứng dụng từ điển *vndict*
+11. *Exception* trong Java
 
 12. Cài đặt và sử dụng *IntelliJ Community*
 
 ### Bài 5:
 
-13. *object-oriented*, *class* và *inheritance* trong Java
+13. Khái niệm *object-oriented*
 
-14. Sơ lược về lập trình giao diện đồ hoạ trong Java
+14. *class* và *inheritance* trong Java
 
 15. Lập trình game dò mìn *Mine Sweeper*
 
+16. Dùng *Git* để quản lý source code
+
 ### Bài 6:
 
-16. *Debug* chương trình Java
+17. *JavaFX*
 
-17. Sơ lược về khái niệm *thread* trong Java
-
-18. Sử dụng công cụ *VisualVM*
+18. *Debug* chương trình Java
 
 19. Cải tiến game dò mìn *Mine Sweeper*
 
@@ -69,70 +69,63 @@ Mỗi buổi học học viên sẽ được giao các bài tập thực hành g
 
 21. Internationalization & Localization
 
-22. Hoàn thiện game *Mine Sweeper*
-
-23. Sơ lược về *Maven*
-
-24. Dùng *Git* để quản lý source code
+22. Cải tiến game *Mine Sweeper*
 
 ### Bài 8:
 
-25. *third-party* dependencies
+23. Sơ lược về *Maven*
 
-26. Tổ chức Java project với Maven
+24. Tổ chức Java project với Maven
 
-27. JUnit
-
-28. Viết ứng dụng scrap tin tức *news-scraper*
+25. Hoàn thiện và đóng gói game dò mìn *Mine Sweeper*
 
 ### Bài 9:
 
-29. Sơ lược về *JDBC*
+26. JUnit
 
-30. Các thư viện *logging* và cấu hình *logging*
+27. Sơ lược về *annotation* và *reflection* trong Java
 
-31. Cải tiến ứng dụng *news-scraper* với MySQL và *logback*
-
-32. Monitor ứng dụng với *VisualVM*
-
-33. Khái niệm *branch* trong Git
+28. Các command Maven cơ bản
 
 ### Bài 10:
 
-34. Sơ lược về *annotation* và *reflection* trong Java
+29. Selenium
 
-35. *Class* và *ClassLoader* trong JVM
-
-36. Hoàn thiện ứng dụng *news-scraper*
+30. Viết ứng dụng scrap content *vscraper*
 
 ### Bài 11:
 
-37. *Generics* trong Java
+31. Sơ lược về *JDBC*
 
-38. *Generics* trong *Collection Framework*
-
-39. Ứng dụng *bhn-map* hiển thị bản đồ xe bus ở Hà Nội
+32. Kết nối ứng dụng *vscraper* với MySQL
 
 ### Bài 12:
 
-40. Khái niệm *worker thread*
+34. Sơ lược về *thread* trong Java
 
-41. Cải tiến ứng dụng *bhn-map* với data load từ MySQL + thêm BRT, đường sắt trên cao
+35. Hoàn thiện ứng dụng *vscraper*
 
 ### Bài 13:
 
-41. Giới thiệu về *java.net*
+35. *Generics* trong Java
 
-42. Viết ứng dụng *mini-torrent* cho phép nhận message từ các máy trong LAN và lưu message vào MySQL
+36. Ứng dụng *music-torrent* quản lý file nhạc trên máy
 
 ### Bài 14:
 
-43. Khái  niệm *acceptor* và *worker*
+37. Lập trình Socket với *java.net*
 
-44. *java.util.concurrent*
+38. Mô hình *acceptor* và *worker*
 
-45. Cải tiến ứng dụng *mini-torrent* cho phép liệt kê danh sách file và tải file khi nhận command tương ứng từ các máy trong LAN
+### Bài 15:
 
-46. Giới thiệu về *Netty Framework*
+39. Tích hợp Socket vào ứng dụng *music-torrent*
 
+40. Sử dụng công cụ *VisualVM*
+
+### Bài 16:
+
+41. Hoàn thiện ứng dụng *music-torrent*
+
+42. Định hướng nghề nghiệp
 
