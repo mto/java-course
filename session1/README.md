@@ -46,7 +46,13 @@ cd ~/java
 gunzip ./jdk-8u141-linux-i586.tar.gz
 tar -xvf ./jdk-8u141-linux-i586.tar
 ```
-* Cài đặt biến môi trường *PATH*
+* Cài đặt biến môi trường *PATH* bằng cách thêm command sau trong file *~/.bashrc*
+
+```shell
+JAVA_HOME=~/java/jdk-8u141-linux-i586
+
+PATH=$JAVA_HOME/bin:$PATH
+```
 
 
 *Mac OS*
@@ -168,9 +174,13 @@ __Bài tập 5:__
 
 ## 4. Làm quen với syntax cơ bản của Java
 
-### 4.1 String & Boolean & int & character
+### 4.1 String & Boolean & int
 
 ```java
+System.out.println(100);
+System.out.println("Java Course");
+System.out.println(true);
+System.out.println(1 < 2);
 
 ```
 
