@@ -277,3 +277,11 @@ if(EXPRESSION_RETURNING_true_OR_false){
 __Bài tập 10:__
 
 *In ra màn hình các số nguyên lẻ nằm trong khoảng từ 1->100*
+
+__Bài tập 11:__
+
+*In ra màn hình hình chữ nhật 5*17 phủ kín bởi các kí tự '\*'*
+
+__Bài tập 12:__
+
+*In ra màn hình đường zig-zag 5*17 gồm các ký tự '\*'*
