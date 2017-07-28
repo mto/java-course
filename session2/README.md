@@ -69,7 +69,8 @@ Ngoài các ký tự *alphabet* và chữ số thì *String* trong Java còn h�
 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
 ```
 
-Chạy đoạn code sau đây trên dòng lệnh
+Cấu trúc này cho phép biểu diễn các ký tự đặc biệt (Ví dụ: chữ tượng hình, symbol,...) thông qua các ký tự *alphabet*. Chuỗi 4 ký tự *XXXX* được gọi là mã **Unicode**
+
 
 ```java
 public class ChessBoard{
@@ -79,7 +80,26 @@ public class ChessBoard{
 }
 ```
 
+### 1.4 Mã **Unicode** cho quân cờ vua
+
 ![](./materials/chess_pieces_unicode.png)
+
+Hình trên cho ta danh sách mã **Unicode** của các quân cờ trên bàn cờ vua
+
+|Piece|Color|Code|
+|:-----:|:----:|:-----:|
+|King|white|2654|
+|Queen|white|2655|
+|Rook|white|2656|
+|Bishop|white|2657|
+|Knight|white|2658|
+|Pawn|white|2659|
+|King|black|265A|
+|Queen|black|265B|
+|Rook|black|265C|
+|Bishop|black|265D|
+|Knight|black|265E|
+|Pawn|black|265F|
 
 __Bài tập 4:__
 
