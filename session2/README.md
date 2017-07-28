@@ -342,6 +342,10 @@ __Bài tập 8:__
 
 ![](./materials/java_core_packages.png)
 
+```shell
+JAVA_CORE_LIBRARY := JavaSE packages
+JavaSE package := JavaSE classes
+```
 
 ## 4. Đọc & ghi file trong Java - Part 1
 
