@@ -54,7 +54,20 @@ __Chú ý:__
  }
  ```
 
-### 1.3 Ký tự đặc biệt trong String
+### 1.3 Ký tự **Unicode** trong *String*
+
+Ngoài các ký tự *alphabet* và chữ số thì *String* trong Java còn hỗ trợ các ký tự đặc biệt có cấu trúc
+
+```java
+'\uXXXX'
+```
+
+* Bắt đầu bằng '\u'
+* Gồm 4 ký tự nằm sau '\u', mỗi ký tự này nhận một trong các giá trị
+
+```shell
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
+```
 
 Chạy đoạn code sau đây trên dòng lệnh
 
@@ -66,6 +79,8 @@ public class ChessBoard{
 }
 ```
 
+![](./materials/chess_pieces_unicode.png)
+
 __Bài tập 4:__
 
 *Tạo file ChessBoard.java với hàm *main* in ra màn hình bàn cờ vua (bỏ qua yêu cầu vẽ các ô đen, trắng) như trong hình dưới đây*
@@ -74,6 +89,9 @@ __Bài tập 4:__
 ![](./materials/chess_board.gif)
 
 ## 2. Class & Method
+
+* *java.lang.String* là class trong Java Core
+* *length(), substring(), charAt(),...* là các *method* được định nghĩa trong class *java.lang.String*
 
 ### 2.1 Mục đích của *method*
 
