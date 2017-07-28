@@ -108,7 +108,7 @@ __Bài tập 4:__
 
 ![](./materials/chess_board.gif)
 
-## 2. Class & Method
+## 2. Method & Class
 
 * *java.lang.String* là class trong Java Core
 * *length(), substring(), charAt(),...* là các *method* được định nghĩa trong class *java.lang.String*
@@ -151,10 +151,204 @@ public static void main(String[] args){
 }
 ```
 
+Việc tạo ra các *method* khi lập trình với bất kỳ ngôn ngữ lập trình nào xuất phát từ các nhu cầu tự nhiên:
+
+* Phân chia code source thành các nhóm dễ kiểm soát
+* Tối ưu hoá việc sử dụng lại mã nguồn
+
+## 2.2 *Method* trong Java
+
+*method* trong Java **phải được định nghĩa trong một cấu trúc *class*** nào đó có dạng
+
+```java
+public class CLASS_NAME{
+
+}
+```
+
+__Chú ý:__
+
+*Học viên xem lại mối liên hệ được đề cập trong bài học trước giữa CLASS_NAME và file mã nguồn .java tương ứng*
+
+Cấu trúc khai báo của *method* trong Java
+
+```java
+public class CLASS_CONTAINING_METHOD{
+
+MODIFIER static RETURN_TYPE METHOD_NAME( ARGUMENTS){
+
+}
+
+MODIFIER RETURN_TYPE METHOD_NAME( ARGUMENTS){
+
+}
+}
+```
+
+* MODIFIER: Nhận các giá trị *public, protected,  ,private*
+* RETURN_TYPE: Nhận các giá trị *void, int, boolean, double, char, float, CLASS_NAME*
+* METHOD_NAME: Tên method bắt đầu bằng ký tự thường theo quy ước trong Java
+* ARGUMENTS: Danh sách các tham số đầu vào
+
+__Ví dụ:__
+
+```java
+public int firstMethod(int number, int factor, String s){...}
+
+private String secondMethod(String sms, int index){}
+
+public void printOut(String s, int n){...}
+
+void anotherPrintOut(String s, int n){...}
+```
+
+__Bài tập 5:__
+
+*Biên dịch và chạy trên dòng lệnh class MathTable.java có nội dung như sau*
+
+```java
+public class MathTable {
+
+    private void printProduct(int i, int j) {
+        System.out.println(i + " x " + j + " = " + i * j);
+    }
+
+    private void printSum(int i, int j) {
+        /**
+         * Print out i + j =
+         *
+         * Ex: 1 + 1 = 2; 2+ 3= 4;...
+         */
+    }
+
+    private void printFactorial(int i) {
+        /**
+         * Print out i!=...
+         *
+         * Ex: 1!=1, 2!= 2, 3!= 6, 5!=120
+         */
+    }
+
+    public void multiplicationTable() {
+        for (int i = 1; i < 11; i++) {
+            for (int j = i; j < 11; j++) {
+                printProduct(i, j);
+            }
+            System.out.println();
+        }
+    }
+
+    public void sumTable() {
+        for (int i = 1; i < 11; i++) {
+            for (int j = i; j < 11; j++) {
+                printSum(i, j);
+            }
+            System.out.println();
+        }
+    }
+
+    public void factorialTable() {
+        for (int i = 1; i < 11; i++) {
+            printFactorial(i);
+        }
+    }
+
+    public static void main(String[] args) {
+        MathTable mt = new MathTable();
+
+        mt.multiplicationTable();
+        System.out.println();
+        mt.sumTable();
+        System.out.println();
+        mt.factorialTable();
+        System.out.println();
+    }
+
+}
+```
+
+__Bài tập 6:__
+
+*Hoàn thiện các method trong MathTable.java theo comment mô tả yêu cầu đầu ra*
+
 ## 3. *package* trong Java
+
+*package* là khái niệm được đưa ra trong Java nhằm giải quyết vấn đề trùng tên khi khai báo class. Mọi class trong Java sẽ thuộc về một *package* nào đó
+
+Cấu trúc đầy đủ của FILE_NAME.java sẽ có dạng
+
+```java
+package PACKAGE_NAME;
+
+public class FILE_NAME{
+
+
+}
+```
+
+PACKAGE_NAME: Tên package bao gồm các ký tự theo quy ước được viết thường và có thể cách nhau bởi dấu '.'
+
+__Ví dụ:__
+
+```
+package vn.techmaster;
+
+public class Bot{
+
+public void sayHello(){
+    System.out.println("Hello");
+}
+
+}
+```
+
+Hình dưới đây cho thấy class *java.lang.String* trong Java Core được định nghĩa với package name là *java.lang*
+
+![](./materials/package_string.png)
+
+### 3.1 *import* statement
+
+Để dùng class A trong class B thì ta cần dùng lệnh *import* để khai báo tên đầy đủ của A trong B.java
+
+https://docs.oracle.com/javase/tutorial/java/package/usepkgs.html
+
+
+```java
+import vn.techmaster.Bot;
+
+public class TestBot{
+
+    public static void main(String[] args){
+       Bot b = new Bot();
+       b.sayHello();
+    }
+}
+
+```
+
+__Bài tập 7:__
+
+*Tạo các file Bot.java và TestBot.java trong cùng thư mục **session2** và biên dịch TestBot.java từ dòng lệnh*
+
+```shell
+javac TestBot.java
+```
+
+__Bài tập 8:__
+
+*Sửa lỗi biên dịch ở Bài tập 7*
+
+### 3.2 Các *package* trong Java Core (Java SE)
 
 ![](./materials/java_core_packages.png)
 
-## 4. Đọc & ghi file trong Java
+
+## 4. Đọc & ghi file trong Java - Part 1
 
 ![](./materials/java_io_package.png)
+
+__Bài tập 9:__
+
+*Xem JavaDoc và thảo luận về package **java.io***
+
+https://docs.oracle.com/javase/7/docs/api/java/io/package-summary.html
