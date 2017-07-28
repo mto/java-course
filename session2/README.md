@@ -355,4 +355,4 @@ __Bài tập 9:__
 
 *Xem JavaDoc và thảo luận về package **java.io***
 
-https://docs.oracle.com/javase/7/docs/api/java/io/package-summary.html
+https://docs.oracle.com/javase/8/docs/api/java/io/package-summary.html
