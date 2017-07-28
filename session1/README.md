@@ -280,8 +280,8 @@ __Bài tập 10:__
 
 __Bài tập 11:__
 
-*In ra màn hình hình chữ nhật 5*17 phủ kín bởi các kí tự '\*'*
+*In ra màn hình hình chữ nhật 5x17 phủ kín bởi các kí tự '\*'*
 
 __Bài tập 12:__
 
-*In ra màn hình đường zig-zag 5*17 gồm các ký tự '\*'*
+*In ra màn hình đường zig-zag 5x17 gồm các ký tự '\*'*
