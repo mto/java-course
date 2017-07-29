@@ -14,6 +14,7 @@ public class MathTable {
          *
          * Ex: 1 + 1 = 2; 2+ 3= 4;...
          */
+        System.out.println(i + " + " + j + " = " + (i + j));
     }
 
     private void printFactorial(int i) {
@@ -22,6 +23,12 @@ public class MathTable {
          *
          * Ex: 1!=1, 2!= 2, 3!= 6, 5!=120
          */
+        int f = 1;
+        for (int k = 1; k <= i; k++) {
+            f = f * k;
+        }
+
+        System.out.println(i + "! = " + f);
     }
 
     public void multiplicationTable() {
