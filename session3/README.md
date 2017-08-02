@@ -6,7 +6,7 @@
 
 __Bài tập 1:__
 
-*Tạo file **Doctor.java** với nội dung như dưới đây, sau đó biên dịch và chạy trên dòng lệnh và thảo luận về cấu trúc của **Doctor.java** với các kiến thức đã *
+*Tạo file **Doctor.java** với nội dung như dưới đây, sau đó biên dịch và chạy trên dòng lệnh và thảo luận về cấu trúc của **Doctor.java** với các kiến thức đã*
 
 ```java
 public class Doctor{
@@ -48,9 +48,7 @@ public class Doctor{
 }
 ```
 
-### 1.1 Nhắc lại kiến thức về *class* & *method*}
-
-### 1.2 Cấu trúc *đầy đủ* của *class*
+### 1.1 Cấu trúc *đầy đủ* của *class*
 
 ```java
 public class CLASS_NAME{
@@ -67,7 +65,7 @@ METHOD_DECLARATIONS
 }
 ```
 
-#### 1.2.1 FIELD_DECLARATIONS:
+* FIELD_DECLARATIONS:
 
 Ví dụ:
 
@@ -85,7 +83,7 @@ __Chú ý:__
 
 *Để đơn giản thì trong các buổi học đầu ta coi như chỉ sử dụng **public** trong khai báo field của *class**
 
-1.2.2 CONSTRUCTOR_DECLARATIONS
+* CONSTRUCTOR_DECLARATIONS
 
 
 ```java
@@ -114,7 +112,7 @@ Ví dụ:
 Doctor d = new Doctor(...)
 ```
 
-1.2.3 METHOD_DECLARATIONS
+* METHOD_DECLARATIONS
 
 *Học viên xem lại cấu trúc khai báo *method* trong bài học 2*
 
@@ -136,11 +134,45 @@ public class ArrayMaster{
 
 public static void main(String[] args){
 
+ int[] nbs = new int[5];
 
+ for(int i=0;i< nbs.length;i++){
+    nbs = i*i;
+ }
+
+ for(int i=0;i< nbs.length;i++){
+    System.out.print(nbs[i] + " ");
+ }
 
 }
 ```
 
+### 2.1 Cấu trúc *array*
+
+Cấu trúc *array* cho phép lưu trữ một **số lượng cố định** các giá trị **thuộc cùng một kiểu**
+
+```java
+TYPE[] VARIABLE_NAME = new TYPE[50];
+```
+
+TYPE: Nhận các giá trị *int, double, float, char, long* hoặc bất kỳ *class* nào
+
+### 2.2 Tương tác với cấu trúc *array*
+
+Đọc & ghi theo index
+
+```java
+String[] names = new String[]{"Tí", "Sửu", "Dần", "Mão"};
+
+System.out.println(names[2]);
+
+names[2] = "Nguyễn Văn " + names[2];
+System.out.println(names[2]);
+```
+
+__Bài tập 4:__
+
+*Khai báo mảng gồm 10 số nguyên và điền vào mảng 10 số nguyên ngẫu nhiên nhỏ hơn 100, in ra màn hình*
 
 
 ## 3. Game *3 cây*
@@ -237,7 +269,7 @@ Kết quả in ra màn hình của bài tập 5 phải giống như hình dướ
 
 ![](./materials/card_main.png)
 
-3.2.1 **CardHand.java**
+3.2.2 **CardHand.java**
 
 ```java
 public class CardHand {
@@ -304,3 +336,134 @@ __Yêu cầu:__
 Kết quả in ra màn hình phải giống hình dưới đây
 
 ![](./materials/card_hand_main.png)
+
+3.2.3 **Dealer.java**
+
+```java
+public class Dealer {
+
+    public final Card[] cards = new Card[52];
+
+    private int dealtIndex = 51;
+
+    public Dealer() {
+        int[] idxs = MathUtil.randomPermutation(52);
+
+        for (int i = 0; i < 52; i++) {
+            int idx = idxs[i];
+
+            cards[i] = new Card((idx / 4) + 1, idx % 4);
+        }
+    }
+
+    public void shuffle() {
+        int k = new Random().nextInt(52);
+        basicShuffle(k);
+    }
+
+    private void basicShuffle(int k) {
+        Card[] tmp = new Card[cards.length];
+
+        for (int i = 0; i < 52; i++) {
+            tmp[i] = cards[i];
+
+            if (i < (52 - k)) {
+                cards[i] = cards[i + k];
+            } else {
+                cards[i] = tmp[i - (52 - k)];
+            }
+        }
+    }
+
+    public void showCards() {
+        for (Card c : cards) {
+            System.out.print(c + " ");
+        }
+    }
+
+    public Card dealCard() {
+        Card c = cards[dealtIndex];
+        dealtIndex--;
+
+        return c;
+    }
+
+    public void reset() {
+        dealtIndex = 51;
+    }
+
+    public static void main(String[] args) {
+        Dealer d = new Dealer();
+        d.showCards();
+
+        for (int i = 0; i < 10; i++) {
+            d.shuffle();
+        }
+
+        d.showCards();
+    }
+}
+```
+
+3.2.4 **TCGame.java**
+
+```java
+public class TCGame {
+
+    public final CardHand[] hands = new CardHand[4];
+
+    public final Dealer dealer;
+
+    public int round = 1;
+
+    public TCGame() {
+        hands[0] = new CardHand("Tí ");
+        hands[1] = new CardHand("Sửu");
+        hands[2] = new CardHand("Dần");
+        hands[3] = new CardHand("Mão");
+
+        dealer = new Dealer();
+    }
+
+    public void newRound() {
+        reset();
+        shuffleTenTimes();
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < hands.length; j++) {
+                Card c = dealer.dealCard();
+                hands[j].addCard(c);
+            }
+        }
+
+        System.out.println("ROUND " + round + "\n");
+        for (int i = 0; i < hands.length; i++) {
+            System.out.println(hands[i]);
+        }
+        System.out.println();
+
+        round++;
+    }
+
+    public void shuffleTenTimes() {
+        for (int i = 0; i < 10; i++) {
+            dealer.shuffle();
+        }
+    }
+
+    public void reset() {
+        for (CardHand h : hands) {
+            h.reset();
+        }
+
+        dealer.reset();
+    }
+
+    public static void main(String[] args) {
+        TCGame g = new TCGame();
+        for (int i = 0; i < 25; i++) {
+            g.newRound();
+        }
+    }
+}
+```
