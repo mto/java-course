@@ -4,6 +4,8 @@
 
 ## 1. *Class* & *object* & *method*
 
+![](./materials/world_seen_as_oop.png)
+
 __Bài tập 1:__
 
 *Tạo file **Doctor.java** với nội dung như dưới đây, sau đó biên dịch và chạy trên dòng lệnh và thảo luận về cấu trúc của **Doctor.java** với các kiến thức đã học*
@@ -155,12 +157,59 @@ public class Doctor{
 
 ### 1.3 Khái niệm *object*
 
+Để dễ hình dung khái niệm *object*, chúng ta hãy bắt đầu từ nhận xét rằng **một chương trình bất kỳ** đều có thể được chia thành nhiều *thành phần* nhỏ tương tác với nhau. Chúng ta gọi các *thành phần* nhỏ này là **object**
+
+Với cách nhìn nhận chương trình là tập hợp các *object* tương tác với nhau, một nhu cầu tự nhiên là ta cần một **cái gì đó** để *mô tả* các *object*. **cái gì đó** ở đây chính là khái niệm *class*
+
+Ví dụ:
+
+Trò chơi gồm 2 võ sĩ là *Flore* và *Kiệt* sẽ bao gồm 2 *object* tương tác với nhau, các *object* này được *mô tả* bằng class *KungfuMaster*
+
+```
+public class KungfuMaster{
+
+  public String name;
+
+  public String category;
+
+  public KungfuMaster(String name, String category){
+    this.name = name;
+    this.category = category;
+  }
+
+  public String basicInfo(){
+    return this.name + "-" + this.category;
+  }
+
+  public static void main(String[] args){
+    KungfuMaster fobj = new KungfuMaster("Flores", "Vịnh Xuân Nam Anh");
+    KungfuMaster kobj = new KungfuMaster("Kiệt", "Nam Huỳnh Đạo");
+  }
+}
+```
+
+Chúng ta gọi *fobj*, *kobj* là các *object thuộc kiểu KungfuMaster* hoặc *instance của class KungfuMaster*
+
+### 1.4 Liên hệ giữa *object* với *field* và *method* khai báo trong *class*
+
+Từ *object* có thể access vào *field* hoặc *method* khai báo trong *class*
+
+```
+System.out.println(fobj.name);
+System.out.println(fobj.basicInfo());
+
+System.out.println(kobj.name);
+System.out.println(kobj.basicInfo());
+```
 
 __Bài tập 2:__
 
 *Thêm khai báo field **phoneNumber** vào trong class **Doctor**, cập nhật constructor của class, khai báo thêm method trả về số phone của doctor và cập nhật hàm **main** để in ra màn hình số phone*
 
 ## 2. Cấu trúc *array*
+
+
+![](./materials/array_model.gif)
 
 __Bài tập 3:__
 
