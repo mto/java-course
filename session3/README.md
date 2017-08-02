@@ -223,7 +223,7 @@ public static void main(String[] args){
  int[] nbs = new int[5];
 
  for(int i=0;i< nbs.length;i++){
-    nbs = i*i;
+    nbs[i] = i*i;
  }
 
  for(int i=0;i< nbs.length;i++){
