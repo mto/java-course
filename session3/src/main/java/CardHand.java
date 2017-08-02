@@ -44,4 +44,13 @@ public class CardHand {
     public String toString() {
         return name + ": " + getScore() + " | " + cards[0] + " " + cards[1] + " " + cards[2];
     }
+
+    public static void main(String[] args){
+        CardHand h = new CardHand("Tí");
+        h.addCard(new Card(1, 2));
+        h.addCard(new Card(6, 3));
+        h.addCard(new Card(11, 0));
+
+        System.out.println(h);
+    }
 }
