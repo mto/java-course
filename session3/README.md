@@ -506,7 +506,7 @@ public class Dealer {
 
 __Bài tập 7:__
 
-*Hoàn thiện method *basicShuffle* theo như yêu cầu, sau đó biên dịch và chạy **Dealer.java***
+*Hoàn thiện method **basicShuffle** theo như yêu cầu, sau đó biên dịch và chạy **Dealer.java***
 
 __Yêu cầu:__
 
@@ -516,7 +516,7 @@ Nội dung in ra màn hình phải cho thấy có 1 số quân bài đã đượ
 
 3.2.4 **MathUtil.java**
 
-**MathUtil.java** cung cấp method cho phép tạo ra *hoán vị* ngẫu nhiên của 52 số từ 0->51. Việc tạo ra hoán vị như vậy cho phép có thể tạo ra sắp xếp ngẫu nhiên ban đầu của 52 quân bài
+**MathUtil.java** cung cấp method cho phép tạo ra *hoán vị* ngẫu nhiên của 52 số từ 0->51. Thông qua đó, có thể tạo ra sắp xếp ngẫu nhiên ban đầu của 52 quân bài
 
 ```java
 import java.util.Random;
