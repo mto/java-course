@@ -64,6 +64,7 @@ public class Dealer {
             d.shuffle();
         }
 
+        System.out.println();
         d.showCards();
     }
 }

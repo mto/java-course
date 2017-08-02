@@ -6,7 +6,7 @@
 
 __Bài tập 1:__
 
-*Tạo file **Doctor.java** với nội dung như dưới đây, sau đó biên dịch và chạy trên dòng lệnh và thảo luận về cấu trúc của **Doctor.java** với các kiến thức đã*
+*Tạo file **Doctor.java** với nội dung như dưới đây, sau đó biên dịch và chạy trên dòng lệnh và thảo luận về cấu trúc của **Doctor.java** với các kiến thức đã học*
 
 ```java
 public class Doctor{
@@ -48,7 +48,14 @@ public class Doctor{
 }
 ```
 
-### 1.1 Cấu trúc *đầy đủ* của *class*
+### 1.1 Cấu trúc *hoàn chỉnh* của *class*
+
+Trong các bài học trước, ta đã biết trong *class* có thể có các khai báo *method*. Tuy nhiên, cấu trúc *hoàn chỉnh* của *class* chứa nhiều hơn thế và bao gồm:
+
+* Fields
+* Constructors
+* Methods
+
 
 ```java
 public class CLASS_NAME{
@@ -70,6 +77,8 @@ METHOD_DECLARATIONS
 Ví dụ:
 
 ```java
+public class Doctor{
+
 public String firstName;
 
 public String lastName;
@@ -77,6 +86,8 @@ public String lastName;
 private int age;
 
 private String email;
+
+}
 ```
 
 __Chú ý:__
@@ -85,22 +96,21 @@ __Chú ý:__
 
 * CONSTRUCTOR_DECLARATIONS
 
+Ví dụ:
 
 ```java
-public class CLASS_NAME{
+public class Doctor{
 
-//First constructor with no arguments
-public CLASS_NAME()
-
-}
-
-//Second constructor with two arguments
-public CLASS_NAME(String name, int age){
-
+  public Doctor(String firstName, String lastName, int age, String email){
+     this.firstName = firstName;
+     this.lastName = lastName;
+     this.age = age;
+     this.email = email;
+  }
 }
 ```
 
-Về bản chất thì constructor là các method đặc biệt có tên **trùng với tên** của *class*. Method đặc biệt này sẽ được thực thi khi ta thực thi câu lệnh
+Constructor của class *CLASS_NAME* được dùng để khởi tạo *object* thuộc kiểu *CLASS_NAME* thông qua toán tử *new*
 
 ```java
 CLASS_NAME obj = new CLASS_NAME(...);
@@ -109,10 +119,37 @@ CLASS_NAME obj = new CLASS_NAME(...);
 Ví dụ:
 
 ```java
-Doctor d = new Doctor(...)
+Doctor d = new Doctor("Băm", "Nguyễn Lang", 40, "nlb@gmail.com");
 ```
 
 * METHOD_DECLARATIONS
+
+Ví dụ:
+
+```java
+public class Doctor{
+
+    public String basicInfo(){
+       return "Name: " + name + ", age: " + age;
+    }
+
+    public String getHospital(){
+       return hospital;
+    }
+
+    public String getClinic(){
+       return clinic;
+    }
+
+    public static void main(String[] args){
+       Doctor d = new Doctor("Mai Trong Hung", 40, "BVPS Hanoi", "PKDK Van Bao");
+
+       System.out.println(d.basicInfo());
+       System.out.println(d.getHospital());
+       System.out.println(d.getClinic());
+    }
+}
+```
 
 *Học viên xem lại cấu trúc khai báo *method* trong bài học 2*
 
@@ -149,45 +186,99 @@ public static void main(String[] args){
 
 ### 2.1 Cấu trúc *array*
 
-Cấu trúc *array* cho phép lưu trữ một **số lượng cố định** các giá trị **thuộc cùng một kiểu**
+*array* là cấu trúc cho phép lưu trữ một **số lượng cố định** các giá trị **thuộc cùng một kiểu**
+
+Ví dụ:
+
+* 10 số nguyên
+* 52 quân bài
+* 7 ngày trong tuần
+* 200 trang sách
+
+Cú pháp khai báo cấu trúc *array* như sau:
 
 ```java
 TYPE[] VARIABLE_NAME = new TYPE[50];
+
+hoặc
+
+TYPE[] VARIABLE_NAME = new TYPE[]{....};
 ```
 
 TYPE: Nhận các giá trị *int, double, float, char, long* hoặc bất kỳ *class* nào
 
-### 2.2 Tương tác với cấu trúc *array*
-
-Đọc & ghi theo index
+Ví dụ:
 
 ```java
-String[] names = new String[]{"Tí", "Sửu", "Dần", "Mão"};
+int[] nbs = new int[10];
 
-System.out.println(names[2]);
+String[] dates = new String[]{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 
-names[2] = "Nguyễn Văn " + names[2];
-System.out.println(names[2]);
+Card[] cards = new Card[52];
+```
+
+### 2.2 Tương tác với cấu trúc *array*
+
+*Đọc & ghi theo index*
+
+```java
+public class ArrayMaster{
+
+    public static void main(String[] args){
+        String[] names = new String[]{"Tí", "Sửu", "Dần", "Mão"};
+
+        System.out.println(names[2]);
+
+        names[2] = "Nguyễn Văn " + names[2];
+        System.out.println(names[2]);
+    }
+}
 ```
 
 __Bài tập 4:__
 
 *Khai báo mảng gồm 10 số nguyên và điền vào mảng 10 số nguyên ngẫu nhiên nhỏ hơn 100, in ra màn hình*
 
+### 2.3 Vòng lặp *for* trên *array*
+
+```java
+TYPE[] items = new TYPE[10];
+
+for(int i =0;i< items.length;i++){
+
+  TYPE item = items[i];
+
+  //Do something
+}
+```
+
+hoặc
+
+```java
+TYPE[] items = new TYPE[10];
+
+for(TYPE item : items){
+ //Do something
+}
+```
+
+Ví dụ:
+
+```java
+String[] dates = new String[]{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+for(String date : dates){
+   System.out.println(date);
+}
+```
 
 ## 3. Game *3 cây*
 
-![](./materials/3_cay.jpg)
+![](./materials/3_cay.png)
 
 Trong phần này, học viên được yêu cầu hoàn thiện game *3 cây* **dựa trên một phần mã nguồn được cung cấp**. Game dựa trên luật chơi *3 cây* thông thường với sửa đổi duy nhất:
 
 * Toàn bộ 52 quân bài được dùng trong trò chơi
-
-Mục đích chính của bài tập game *3 cây*:
-
-1. Làm việc với cấu trúc *array*
-2. Làm việc với *class* & *method*
-3. Rèn tư duy *bóc tách* ứng dụng
 
 ### 3.1. *Bóc tách* chương trình
 
@@ -197,7 +288,7 @@ Trò chơi *3 cây* trong thực tế bao gồm các thành phần sau
 * Người chơi
 * Người chia
 
-Do vậy, một cách tự nhiên thì chương trình game ta cần viết có thể được tổ chức gồm các *object* của các *class* sau đây:
+Do vậy, một cách tự nhiên thì chương trình game ta cần viết có thể được tách thành các *class* sau đây:
 
 * *Card.java* : Mô phỏng quân bài trong bộ bài
 * *CardHand.java* : Mô phỏng người chơi với 3 quân bài được chia
@@ -205,19 +296,25 @@ Do vậy, một cách tự nhiên thì chương trình game ta cần viết có 
 * *TCGame.java* : Class chứa hàm *main* của chương trình
 
 ```java
+public class TCGame{
+
     public static void main(String[] args) {
         TCGame g = new TCGame();
         for (int i = 0; i < 25; i++) {
             g.newRound();
         }
     }
+}
 ```
 
 ### 3.2. Hoàn thiện code được cung cấp
 
 3.2.1 **Card.java**
 
-**Card.java** mô phỏng quân bài và bao gồm 2 thuộc tính (fields) là *rank* (tương ứng với giá trị của quân bài) và *suit* (tương ứng với chất của quân bài)
+**Card.java** mô phỏng quân bài và có 2 *fields* chính
+
+* rank: Giá trị số cuả quân bài
+* suit: Chất của quân bài
 
 ```java
 public class Card {
@@ -270,6 +367,11 @@ Kết quả in ra màn hình của bài tập 5 phải giống như hình dướ
 ![](./materials/card_main.png)
 
 3.2.2 **CardHand.java**
+
+**CardHand.java** mô phỏng tay cầm bài của người chơi và bao gồm 2 *fields* chính:
+
+* cards: *array* chứa 3 quân bài được chia
+* name: Tên của người chơi: Tí, Sửu, Dần, Mão,...
 
 ```java
 public class CardHand {
@@ -339,6 +441,12 @@ Kết quả in ra màn hình phải giống hình dưới đây
 
 3.2.3 **Dealer.java**
 
+**Dealer.java** mô phỏng người chia bài trong trò chơi và bao gồm 1 field chính
+
+* cards: *array* chứa 52 quân bài được sắp xếp theo thứ tự ngẫu nhiên ban đầu.
+
+Ngoài ra **Dealer.java** có chứa method *shuffle* mô phỏng việc tráo bài trước khi chia.
+
 ```java
 public class Dealer {
 
@@ -362,17 +470,8 @@ public class Dealer {
     }
 
     private void basicShuffle(int k) {
-        Card[] tmp = new Card[cards.length];
-
-        for (int i = 0; i < 52; i++) {
-            tmp[i] = cards[i];
-
-            if (i < (52 - k)) {
-                cards[i] = cards[i + k];
-            } else {
-                cards[i] = tmp[i - (52 - k)];
-            }
-        }
+        //TODO: Hoán vị vị trí các quân bài sao cho k quân bài đầu tiên trong mảng
+        //sẽ được chuyển xuống phía cuối của mảng, giống với cách tráo bài thông thường
     }
 
     public void showCards() {
@@ -399,13 +498,64 @@ public class Dealer {
         for (int i = 0; i < 10; i++) {
             d.shuffle();
         }
-
+        System.out.println();
         d.showCards();
     }
 }
 ```
 
-3.2.4 **TCGame.java**
+__Bài tập 7:__
+
+*Hoàn thiện method *basicShuffle* theo như yêu cầu, sau đó biên dịch và chạy **Dealer.java***
+
+__Yêu cầu:__
+
+Nội dung in ra màn hình phải cho thấy có 1 số quân bài đã được chuyển xuống cuối, tương tự với hình sau
+
+![](./materials/dealer_main.png)
+
+3.2.4 **MathUtil.java**
+
+**MathUtil.java** cung cấp method cho phép tạo ra *hoán vị* ngẫu nhiên của 52 số từ 0->51. Việc tạo ra hoán vị như vậy cho phép có thể tạo ra sắp xếp ngẫu nhiên ban đầu của 52 quân bài
+
+```java
+import java.util.Random;
+
+/**
+ * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
+ * @date: 7/31/17
+ */
+public class MathUtil {
+
+    public static int[] randomPermutation(int n) {
+        return randomPermutation(n, 0);
+    }
+
+    public static int[] randomPermutation(int n, int base) {
+        int[] p = new int[n];
+        for (int i = 0; i < n; i++) {
+            p[i] = i + base;
+        }
+
+        for (int k = 1; k < n; k++) {
+            int ridx = new Random().nextInt(n - k + 1);
+            int tmp = p[n - k];
+            p[n - k] = p[ridx];
+            p[ridx] = tmp;
+        }
+
+        return p;
+    }
+
+}
+```
+
+3.2.5 **TCGame.java**
+
+**TCGame.java** chứa hàm *main* của ứng dụng và thực thi các công việc
+
+* Khởi tạo *array* gồm 4 người chơi + khởi tạo *Dealer*
+* Lần lượt thực thi 25 vòng chơi
 
 ```java
 public class TCGame {
@@ -467,3 +617,13 @@ public class TCGame {
     }
 }
 ```
+
+__Bài tập 8:__
+
+*Biên dịch và chạy **TCGame.java***
+
+__Yêu cầu:__
+
+Kết quả in ra màn hình phải tương tự như hình dưới đây
+
+![](./materials/tcgame_main.png)
