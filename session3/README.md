@@ -165,7 +165,7 @@ Ví dụ:
 
 Trò chơi gồm 2 võ sĩ là *Flore* và *Kiệt* sẽ bao gồm 2 *object* tương tác với nhau, các *object* này được *mô tả* bằng class *KungfuMaster*
 
-```
+```java
 public class KungfuMaster{
 
   public String name;
@@ -194,7 +194,7 @@ Chúng ta gọi *fobj*, *kobj* là các *object thuộc kiểu KungfuMaster* ho�
 
 Từ *object* có thể access vào *field* hoặc *method* khai báo trong *class*
 
-```
+```java
 System.out.println(fobj.name);
 System.out.println(fobj.basicInfo());
 
