@@ -207,3 +207,273 @@ __Chú ý:__
 https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-
 
 ## 3. Ứng dụng *PhotoGallery*
+
+![](./materials/photo_gallery.png)
+
+Học viên được yêu cầu hoàn thiện các method trong class *PhotoExplorer.java* để có thể chạy được ứng dụng Photo Gallery với giao diện trên hình vẽ.
+
+Phần giao diện đồ hoạ (dùng JavaFX và sẽ được học trong các buổi học tiếp theo) được cung cấp.
+
+### 3.1. Tạo module *photo-gallery*
+
+__Bài tập 5:__
+
+*Tạo module *photo-gallery* trong ~/java/TechMaster trên IntelliJ. Tiếp theo tạo các package **com.techmaster.photogallery** và **com.techmaster.photogallery.widget** và thêm vào các class sau*
+
+1. *com.techmaster.photogallery.widget.PhotoDetail.java*
+
+```java
+package com.techmaster.photogallery.widget;
+
+import javafx.embed.swing.SwingFXUtils;
+import javafx.geometry.Insets;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.VBox;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+/**
+ * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
+ * @date: 8/9/17
+ */
+public class PhotoDetail {
+
+    private ImageView imgView;
+
+    private Label imgName;
+
+    public VBox vbox;
+
+    public PhotoDetail() {
+        vbox = new VBox(15);
+        vbox.setPadding(new Insets(10, 10, 10, 10));
+        imgView = new ImageView();
+        imgView.setFitWidth(300);
+        imgView.setPreserveRatio(true);
+        imgView.setCache(true);
+
+        imgName = new Label("");
+
+        vbox.getChildren().addAll(imgView, imgName);
+    }
+
+    public void showPhoto(File img, String name) {
+        try {
+            BufferedImage bf = ImageIO.read(img);
+            Image image = SwingFXUtils.toFXImage(bf, null);
+            imgView.setImage(image);
+
+            imgName.setText("Name: " + name);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+}
+```
+
+2. *com.techmaster.photogallery.widget.PhotoList.java*
+
+```java
+package com.techmaster.photogallery.widget;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ListView;
+
+import java.util.Set;
+
+/**
+ * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
+ * @date: 8/9/17
+ */
+public class PhotoList {
+
+    public ListView<String> listPhotos;
+
+    private ObservableList<String> data;
+
+    public PhotoList(){
+        data = FXCollections.observableArrayList();
+        listPhotos = new ListView<>(data);
+    }
+
+    public void initData(Set<String> photoNames){
+        data.addAll(photoNames);
+    }
+}
+```
+
+3. *com.techmaster.photogallery.PhotoGallery.java*
+
+```java
+package com.techmaster.photogallery;
+
+import com.techmaster.photogallery.widget.PhotoDetail;
+import com.techmaster.photogallery.widget.PhotoList;
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+import java.io.File;
+
+/**
+ * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
+ * @date: 8/8/17
+ */
+public class PhotoGallery extends Application implements EventHandler<MouseEvent> {
+
+    private PhotoDetail pDetail;
+
+    private PhotoList pList;
+
+    private PhotoExplorer px;
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        px = new PhotoExplorer();
+        pDetail = new PhotoDetail();
+        pList = new PhotoList();
+        pList.initData(px.getPhotos().keySet());
+
+        pList.listPhotos.setOnMouseClicked(this);
+
+        BorderPane bdp = new BorderPane();
+        bdp.setPadding(new Insets(10, 10, 10, 10));
+        bdp.setLeft(pDetail.vbox);
+
+        bdp.setCenter(pList.listPhotos);
+
+        if (px.getPhotos().size() > 0) {
+            String defaultfImgName = px.getPhotos().keySet().iterator().next();
+            File defaultImg = px.getPhotos().get(defaultfImgName);
+
+            pDetail.showPhoto(defaultImg, defaultfImgName);
+        }
+
+        Scene scene = new Scene(bdp, 800, 400);
+        primaryStage.setTitle("Photo Gallery");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    @Override
+    public void handle(MouseEvent event) {
+        String fname = pList.listPhotos.getSelectionModel().getSelectedItem();
+        System.out.println("Select photo " + fname);
+        File f = px.getPhotos().get(fname);
+        if (f != null) {
+            pDetail.showPhoto(f, fname);
+        }
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+```
+
+4. *com.techmaster.photogallery.PhotoExplorer.java*
+
+```java
+package com.techmaster.photogallery;
+
+import java.io.File;
+import java.io.FileFilter;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
+ * @date: 8/9/17
+ */
+public class PhotoExplorer {
+
+    private List<String> photoFolders;
+
+    private Map<String, File> photos;
+
+    public PhotoExplorer() {
+        photoFolders = new LinkedList<>();
+        photoFolders.add("/Users/mto/Pictures");
+
+        photos = new HashMap<>();
+
+        initPhotoFolders();
+
+        loadPhotos();
+    }
+
+    private void initPhotoFolders(){
+        //TODO: Thêm đường dẫn tuyệt đối đến thư mục chứa ảnh vào photoFolders
+        //Ví dụ:  /Users/java/Pictures
+    }
+
+    private void loadPhotos() {
+        for(String pfName : photoFolders){
+            File pdir = new File(pfName);
+            if(pdir.exists() && pdir.isDirectory()) {
+                Map<String, File> pfs = photosInFolder(pdir);
+
+                photos.putAll(pfs);
+            }
+        }
+    }
+
+    public Map<String, File> getPhotos() {
+        return photos;
+    }
+
+    private Map<String, File> photosInFolder(File f) {
+        Map<String, File> ret = new HashMap<>();
+
+        //TODO: Thêm các cặp <filename, file> trong thư mục f vào 'ret'
+        //Chú ý chỉ thêm các file tận cùng với .png, .jpeg, .jpg, .gif
+
+        return ret;
+    }
+
+    public static void main(String[] args) {
+        PhotoExplorer px = new PhotoExplorer();
+
+        System.out.println("Folders containing pictures:");
+        for (String pf : px.photoFolders) {
+            System.out.println(pf);
+        }
+
+        System.out.println("List of pictures: \n");
+        for(Map.Entry<String, File> e : px.photos.entrySet()){
+            System.out.println(e.getKey() + " - " + e.getValue().getAbsolutePath());
+        }
+    }
+}
+```
+
+### 3.2. Hoàn thiện *PhotoExplorer.java*
+
+__Bài tập 6:__
+
+*Hoàn thiện method **initPhotoFolders()** theo yêu cầu và chạy hàm main trong class PhotoExplorer.java*
+
+__Bài tập 7:__
+
+*Hoàn thiện method **photosInFolders()** theo yêu cầu và chạy hàm main trong PhotoGallery.java*
+
+__Chú ý:__
+
+*Cần dùng method listFiles() trong java.io.File cho bài tập 7*
+
+https://docs.oracle.com/javase/8/docs/api/java/io/File.html#listFiles--
+
+__Bài tập 8:__
+
+*Chạy hàm main trong PhotoGallery.java, sau đó chỉnh sửa code để danh sách ảnh được hiển thị theo thứ tự alphabet*
