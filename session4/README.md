@@ -132,7 +132,7 @@ Ví dụ:
 import java.util.List;
 import java.util.ArrayList;
 
-public ListMaster{
+public class ListMaster{
 
   public static void main(String[] args){
      List<String> names = new ArrayList<>();
@@ -152,7 +152,7 @@ public ListMaster{
 import java.util.Map;
 import java.util.HashMap;
 
-public MapMaster{
+public class MapMaster{
 
   public static void main(String[] args){
      Map<String, String> staffs = new HashMap<>();
@@ -160,9 +160,9 @@ public MapMaster{
      staffs.put("Nam", "nvnam@gmail.com");
      staffs.put("Viet", "tvviet@gmail.com");
      staffs.put("Ha", "bvha@gmail.com");
-     System.out.println(names.get("Nam"));
-     System.out.println(names.get("Viet"));
-     System.out.println(names.get("Ha"));
+     System.out.println(staffs.get("Nam"));
+     System.out.println(staffs.get("Viet"));
+     System.out.println(staffs.get("Ha"));
   }
 }
 ```
