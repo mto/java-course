@@ -171,11 +171,11 @@ __Bài tập 2:__
 
 *Tạo IntelliJ module **session4** và chạy 2 class MapMaster.java, ListMaster.java trên IntelliJ*
 
-### 2.2 *Collection Framework*
+### 2.2 *Collections Framework*
 
 ![](./materials/collections_framework.png)
 
-*Collection Framework* là một phần của thư viện Java Core, cung cấp *công cụ mạnh* để làm việc với một số cấu trúc dữ liệu căn bản như
+*Collections Framework* là một phần của thư viện Java Core, cung cấp *công cụ mạnh* để làm việc với một số cấu trúc dữ liệu căn bản như
 
 * *array*
 * *list*
