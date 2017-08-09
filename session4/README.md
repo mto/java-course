@@ -125,7 +125,7 @@ Rất khó có thể dùng *array* đơn thuần để mô tả các bệnh nhâ
 
 Ví dụ:
 
-1. *list* các bệnh nhân xếp hàng chờ khám
+1. *list* các hành khách đặt chỗ trên chuyến bay
 2. *map* danh sách tên nhân viên -> email
 
 ```java
