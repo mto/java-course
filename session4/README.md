@@ -49,7 +49,7 @@ Trong phần này các học viên sẽ được hướng dẫn:
 * Tạo module **mine-sweeper**
 * Tạo, biên dịch và chạy file .java có chứa hàm *main* trong **mine-sweeper**
 
-Các bước tạo project **TechMaster**
+*Các bước tạo project **TechMaster***
 
 1. Từ main menu chọn *File->New->Project*
 
@@ -62,7 +62,7 @@ Các bước tạo project **TechMaster**
 ![](./materials/TechMaster_empty_project.png)
 
 
-Các bước tạo module **mine-sweeper**
+*Các bước tạo module **mine-sweeper***
 
 1. Từ main menu chọn *File->New->Module..* và chọn *Java* rồi click *Next*
 
@@ -78,7 +78,7 @@ __Chú ý:__
 
 *Module File Location là thư mục chứa mã nguồn của module, thư mục này **KHÔNG NÊN** để bên dưới thư mục project location. Trong khoá học này, các học viên được yêu cầu tạo các module nằm dưới ~/java/TechMaster/*
 
-Các bước tạo, biên dịch và chạy *MineSweeper.java* trong module *mine-sweeper*
+*Các bước tạo, biên dịch và chạy *MineSweeper.java* trong module *mine-sweeper**
 
 1. Click chuột phải vào thư mục *src* trong module *mine-sweeper* và chọn *New->Package*
 2. Điền vào popup tên package là *com.techmaster.minesweeper*
@@ -86,6 +86,11 @@ Các bước tạo, biên dịch và chạy *MineSweeper.java* trong module *min
 4. Điền vào popup tên class là *MineSweeper*
 5. Tạo hàm *main* trong class mới tạo
 6. Click chuột phải vào class *MineSweeper* và chọn *Run 'MineSweeper.main()'*
+
+
+__Bài tập 1:__
+
+*Tạo module **photo-gallery** trong ~/java/TechMaster, sẽ được dùng trong bài tập về ứng dụng PhotoGallery dưới đây*
 
 ### 1.3. Cài đặt *Keymap*
 
@@ -109,12 +114,80 @@ default là *Eclipse* keymap. Để chọn cấu hình *Eclipse* cho keymap, ta 
 * Chỉ có thể access vào *array* thông qua *index*
 * Không có sẵn các *method* hỗ trợ việc sắp xếp, thêm, bớt phần tử
 
+Ví dụ:
+
+Rất khó có thể dùng *array* đơn thuần để mô tả các bệnh nhân xếp hàng chờ khám bệnh do số lượng cũng như vị trí các bệnh nhân đợi trong hàng thay đổi liên tục.
+
 ### 2.1. Cấu trúc *list* và *map*
+
+* *list*: Cấu trúc cho phép lưu trữ nhiều phần tử chung tính chất nào đó
+* *map*: Cấu trúc cho phép lưu trữ danh sách các cặp <key, value>
+
+Ví dụ:
+
+1. *list* các bệnh nhân xếp hàng chờ khám
+2. *map* danh sách tên nhân viên -> email
 
 ```java
 import java.util.List;
+import java.util.ArrayList;
 
+public ListMaster{
 
+  public static void main(String[] args){
+     List<String> names = new ArrayList<>();
+
+     names.add("Nam");
+     names.add("Viet");
+     names.add("Ha");
+
+     System.out.println(names.get(0));
+     System.out.println(names.get(1));
+     System.out.println(names.get(2));
+  }
+}
 ```
+
+```java
+import java.util.Map;
+import java.util.HashMap;
+
+public MapMaster{
+
+  public static void main(String[] args){
+     Map<String, String> staffs = new HashMap<>();
+
+     staffs.put("Nam", "nvnam@gmail.com");
+     staffs.put("Viet", "tvviet@gmail.com");
+     staffs.put("Ha", "bvha@gmail.com");
+     System.out.println(names.get("Nam"));
+     System.out.println(names.get("Viet"));
+     System.out.println(names.get("Ha"));
+  }
+}
+```
+
+__Bài tập 2:__
+
+*Tạo IntelliJ module **session4** và chạy 2 class MapMaster.java, ListMaster.java trên IntelliJ*
+
+### 2.2 *java.util.List* & *java.util.Map*
+
+* https://docs.oracle.com/javase/8/docs/api/java/util/List.html
+* https://docs.oracle.com/javase/8/docs/api/java/util/Map.html
+
+__Bài tập 3:__
+
+*Thêm 5 phần tử vào trong list trong ListMaster.java, in ra màn hình số phần tử có trong list*
+
+__Bài tập 4:__
+
+*Sắp xếp lại các phần tử trong ListMaster.java theo thứ tự alphabet, in ra màn hình*
+
+__Chú ý:__
+
+*Có thể dùng java.util.Collections.sort() để làm bài tập 4*
+
+https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html#sort-java.util.List-
 
 ## 3. Ứng dụng *PhotoGallery*
