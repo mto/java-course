@@ -1,5 +1,5 @@
 * Sử dụng IntelliJ
-* Collection Framework trong *java.util*
+* Collections Framework trong *java.util*
 * Ứng dụng *PhotoGallery*
 
 ## 1. Sử dụng IntelliJ
@@ -104,7 +104,7 @@ default là *Eclipse* keymap. Để chọn cấu hình *Eclipse* cho keymap, ta 
 2. Chọn *Eclipse* như trong hình trên và click *Apply*
 
 
-## 2. *Collection Framework* trong *java.util*
+## 2. *Collections Framework* trong *java.util*
 
 ![](./materials/queuing_hospital.jpg)
 
@@ -173,6 +173,8 @@ __Bài tập 2:__
 
 ### 2.2 *Collection Framework*
 
+![](./materials/collections_framework.png)
+
 *Collection Framework* là một phần của thư viện Java Core, cung cấp *công cụ mạnh* để làm việc với một số cấu trúc dữ liệu căn bản như
 
 * *array*
@@ -181,7 +183,7 @@ __Bài tập 2:__
 * *queue*
 * *stack*
 
-Toàn bộ *Collection Framework* được tổ chức trong package **java.util**
+Toàn bộ *Collections Framework* được tổ chức trong package **java.util**
 
 https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html
 
