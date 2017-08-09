@@ -171,7 +171,21 @@ __Bài tập 2:__
 
 *Tạo IntelliJ module **session4** và chạy 2 class MapMaster.java, ListMaster.java trên IntelliJ*
 
-### 2.2 *java.util.List* & *java.util.Map*
+### 2.2 *Collection Framework*
+
+*Collection Framework* là một phần của thư viện Java Core, cung cấp *công cụ mạnh* để làm việc với một số cấu trúc dữ liệu căn bản như
+
+* *array*
+* *list*
+* *map*
+* *queue*
+* *stack*
+
+Toàn bộ *Collection Framework* được tổ chức trong package **java.util**
+
+https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html
+
+Khoá học sẽ tập trung vào 2 kiểu dữ liệu được dùng phổ biến nhất trong lập trình nói chung là *list* và *map*
 
 * https://docs.oracle.com/javase/8/docs/api/java/util/List.html
 * https://docs.oracle.com/javase/8/docs/api/java/util/Map.html
