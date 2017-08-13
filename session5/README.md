@@ -188,6 +188,9 @@ https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
 
 ### 2.3. Tạo repository *mine-sweeper*
 
+1. Tạo repository *mine-sweeper* từ giao diện của GitHub
+2. Tạo repository *mine-sweeper* trên local environment
+
 ```shell
 cd ~/java/TechMaster/mine-sweeper
 
@@ -198,8 +201,12 @@ git remote add origin git@github.com:{GIT_ACCOUNT_NAME}/mine-sweeper.git
 
 ### 2.3. Gitk
 
+![](./materials/gitk.png)
+
+* Công cụ cho phép view nhanh các commits trong repository thông qua command
+
 ```shell
-sudo apt-get install gitk
+gitk
 ```
 
 ## 3. Lập trình game dò mìn
@@ -221,7 +228,7 @@ public class MineMap{
     private Cell[][] cells;
 
     public MineMap(int nRow, int nCol, float mineProb){
-        //mineProb: Sác xuất để một ô có mìn
+        //mineProb: Xác suất để một ô có mìn
 
     }
 }
