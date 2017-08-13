@@ -189,6 +189,9 @@ https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
 ### 2.3. Tạo repository *mine-sweeper*
 
 1. Tạo repository *mine-sweeper* từ giao diện của GitHub
+
+https://help.github.com/articles/create-a-repo/
+
 2. Tạo repository *mine-sweeper* trên local environment
 
 ```shell
@@ -198,6 +201,10 @@ git init
 
 git remote add origin git@github.com:{GIT_ACCOUNT_NAME}/mine-sweeper.git
 ```
+
+__Bài tập 4:__
+
+*Tạo repository theo hướng dẫn trong mục 2.3*
 
 ### 2.3. Gitk
 
@@ -213,13 +220,58 @@ gitk
 
 ![](./materials/mine_sweeper_gameboard.png)
 
-### 3.1. Thiết kế các ô vuông
+Các học viên được yêu cầu hoàn thiện game dò mìn *mine-sweeper* trong **4 buổi học** + **thời gian làm việc ở nhà**
 
-* Cell.java
-* MineCell.java
-* EmptyCell.java
-* NumberCell.java
+Các kiến thức chính để hoàn thiện game dò mìn bao gồm:
 
+* *class* & *inheritance*
+* *array* & Collections Framework
+* Lập trình giao diện với *JavaFX*
+* Làm việc với IntelliJ & GitHub
+
+### 3.1. Bóc tách chương trình
+
+Cấu trúc game dò mìn bao gồm:
+
+* Một bảng vuông lớn chứa các ô vuông nhỏ
+* Các ô vuông nhỏ có thể là ô trống, ô có mìn, ô chứa số
+* Các ô vuông nhỏ được khởi tạo *ngẫu nhiên* lúc bắt đầu game
+* Giao diện đồ hoạ hiển thị các ô vuông nhỏ và nhận tương tác từ người chơi (mouse clicks)
+
+Do đó, ta cần các class sau cho bộ khung của game:
+
+1. *MineCell, EmptyCell, NumberCell*: class dùng để biểu diễn các ô vuông nhỏ
+2. *MineMap*: class khởi tạo *ngẫu nhiên* dữ liệu ban đầu của game
+3. *GameBoard*: class làm công việc hiển thị giao diện đồ hoạ (dùng JavaFX)
+4. *MineSweeper*: class chứa hàm *main* chính để chạy ứng dụng
+
+### 3.1. Cấu trúc thư mục trong *mine-sweeper* module
+
+Trong buổi học trước, ta đã tạo IntelliJ module *mine-sweeper* với lựa chọn *Java module*. Cấu trúc thư mục mặc định của *Java module* là có *src* trực tiếp chứa mã nguồn.
+
+Tuy nhiên, cấu trúc thư mục mặc định này có các hạn chế sau:
+
+* Không tách rời thư mục chứa Java source code với các resource khác
+* Không giống với cấu trúc thư mục mặc định của *Maven module* được sử dụng trong hầu hết các dự án Java trong thực tế.
+
+Do đó, ta cần chỉnh sửa lại cấu trúc thư mục của *mine-sweeper* như sau
+
+* src/main/java: Chứa mã nguồn Java
+* src/main/resources: Chứa các file resources của chương trình
+* src/test/java: Chứa mã nguồn cho unit test
+* src/test/resources: Chứa các file resources dùng cho unit test
+
+![](./materials/mine_sweeper_structure.png)
+
+Để chỉnh sửa cấu trúc thư mục trong module thì ta cần click vào *File->Project Structure* trên main menu, sau đó thao tác trên giao diện sau
+
+![](./materials/mine_sweeper_project_structure.png)
+
+### 3.2. *class* & *inheritance*
+
+```java
+
+```
 ### 3.2. Tạo dữ liệu ban đầu
 
 ```java
