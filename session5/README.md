@@ -14,7 +14,9 @@ Có thể thấy rằng *Patient, Doctor, Nurse* sẽ chứa một số *field* 
 
 ### 1.1. Subclass
 
-Giải pháp cho vấn đề các *field, method* giống nhau bị lặp lại trong nhiều *class* là ta sẽ tạo *class* **Person** chứa khai báo của các *field, method* chung
+Giải pháp cho vấn đề các *field, method* giống nhau bị lặp lại trong nhiều *class*:
+
+1. Tạo *class* **Person** chứa khai báo của các *field, method* chung
 
 ```java
 public class Person{
@@ -34,6 +36,8 @@ public class Person{
     }
 }
 ```
+
+2. Dùng cấu trúc sau để Doctor, Patient, Nurse thừa kế *field, method* trong Person
 
 ```java
 public class Doctor extends Person {
@@ -85,7 +89,7 @@ __Chú ý:__
 
 Trong các dòng code làm nhiệm vụ in ra màn hình hoặc '+' trên String sau đây thì method *toString* trên *obj* sẽ được gọi
 
-```
+```java
 A obj = new A();
 
 System.out.println(obj);
@@ -111,6 +115,8 @@ __Bài tập 2:__
 *Implement lại method getFullname trong class Doctor, trả về giá trị gồm chuỗi "Doctor: " + firstName + lastName, sau đó chạy hàm main trong class Doctor*
 
 
+Ta có các khái niệm *downcasting* và *upcasting* khi call method được implement trong cả class và subclass
+
 * *Downcasting*: Method khai báo trong subclass được gọi. Trong Java thì *downcasting* luôn được thực thi khi call method
 * *Upcasting*: Method khai báo trong parent class được gọi. Từ khoá **super** cho phép thực thi *upcasting* khi call method
 
@@ -134,8 +140,40 @@ Với khái niệm *subclass* thì khẳng định trên trở thành
 * E: **l** có thể chứa bất kỳ *object* nào của class E hoặc subclass của E
 * K, V: **m** có thể chứa bất kỳ cặp *kobject, vobject* nào lần lượt thuộc kiểu K, V hoặc subclass của K, V
 
+### 1.5. Từ khoá *instanceof*
 
+```java
+Person p = ...;
+
+if(p instanceof Doctor){
+  System.out.println("Object p is instance of class Doctor");
+}
+```
+
+* Từ khoá *instanceof* cho ta kiểm tra xem một *object* có là instance của một class nào đó không
+
+__Bài tập 3:__
+
+*Tạo class Hospital.java và hoàn thiện hàm main theo yêu cầu như dưới đây*
+
+```java
+import java.util.List;
+import java.util.LinkedList;
+
+public class Hospital{
+
+  public static void main(String[] args){
+    List<Person> people = new LinkedList<Person>();
+
+    //TODO:
+    //1. Thêm vào list people 1 doctors, 3 nurses và 5 patients
+    //2. Dựa vào list people, hãy tính số lượng doctors, nurses, patients
+  }
+
+}
+```
 ## 2. Sử dụng *Git* & *GitHub*
+
 
 ![](./materials/git_github.png)
 
