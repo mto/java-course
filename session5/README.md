@@ -267,24 +267,157 @@ Do đó, ta cần chỉnh sửa lại cấu trúc thư mục của *mine-sweeper
 
 ![](./materials/mine_sweeper_project_structure.png)
 
+__Bài tập 5:__
+
+*Chỉnh sửa cấu trúc thư mục cho mine-sweeper module theo yêu cầu*
+
 ### 3.2. *class* & *inheritance*
 
+Các class *MineCell, EmptyCell, NumberCell* có khá nhiều thông tin chung như:
+
+* *discovered*: boolean field cho biết ô đã được khám phá hay chưa
+* *flagged*: boolean field cho biết ô đang được cắm cờ hay ko
+
+Do vậy, ta sẽ tạo class *Cell* chứa các thông tin này và là parent class của *MineCell, EmptyCell, NumberCell*
+
 ```java
+package com.techmaster.minesweeper.model;
 
-```
-### 3.2. Tạo dữ liệu ban đầu
+/**
+ * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
+ * @date: 8/11/17
+ */
+public class Cell {
 
-```java
-public class MineMap{
-
-    private Cell[][] cells;
-
-    public MineMap(int nRow, int nCol, float mineProb){
-        //mineProb: Xác suất để một ô có mìn
-
+    @Override
+    public String toString() {
+        return " ";
     }
 }
 ```
 
+__Bài tập 6:__
+
+*Tạo lần lượt các class Cell, MineCell, EmptyCell, NumberCell và override lại hàm *toString* trên mỗi class*
+
+__Chú ý:__
+
+Class NumberCell sẽ cần có constructor nhận đầu vào là 1 số nguyên (số quả mìn ở các ô nằm xung quanh ô này)
+
+### 3.3. Tạo dữ liệu ban đầu
+
+Dữ liệu ban đầu là một mảng 2 chiều trong class MineMap
+
+```java
+Cell[][] cells;
+```
+
+Để tạo *ngẫu nhiên* dữ liệu ban đầu ta cần làm các bước sau:
+
+1. Tạo ngẫu nhiên các ô có mìn
+2. Chạy vòng lặp trên mảng xem các ô còn lại là ô trống hay ô số
+
+```java
+package com.techmaster.minesweeper;
+
+import com.techmaster.minesweeper.model.Cell;
+
+/**
+ * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
+ * @date: 8/11/17
+ */
+public class MineMap {
+
+    private Cell[][] cells;
+
+    private int nRow;
+
+    private int nCol;
+
+    private float mineProb;
+
+    public MineMap(int nRow, int nCol, float mineProb) {
+        this.nRow = nRow;
+        this.nCol = nCol;
+        this.mineProb = mineProb;
+
+        cells = new Cell[nRow][nCol];
+
+        setMines();
+        initCells();
+    }
+
+    public Cell getCell(int i, int j){
+        return cells[i][j];
+    }
+
+    private void setMines() {
+      //TODO: Tạo ngẫu nhiên các ô có mìn, với xác suất có mìn là mineProb
+    }
+
+    private void initCells() {
+        for (int i = 0; i < nRow; i++)
+            for (int j = 0; j < nCol; j++) {
+                initCell(i, j);
+            }
+    }
+
+    private void initCell(int rowIdx, int colIdx) {
+        //TODO: Xác định xem trong trường hợp ô ở vị trí rowIdx, colIdx chưa được khởi tạo (== null)
+        //thì nó phải là ô trống hay ô số, sau đó gán giá trị tương ứng vào mảng *cells*
+    }
+
+    private void display() {
+        for (int i = 0; i < nRow; i++) {
+            for (int j = 0; j < nCol; j++) {
+                System.out.print("|" + cells[i][j]);
+            }
+            System.out.print("|");
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        MineMap bg = new MineMap(20, 30, 0.15f);
+        System.out.println();
+        bg.display();
+    }
+}
+```
+
+__Bài tập 7:__
+
+*Tạo class MineMap và hoàn thiện method **setMines** như yêu cầu, chạy hàm main trong class MineMap*
+
+__Bài tập 8:__
+
+*Hoàn thiện method **initCell** theo yêu cầu, chạy hàm main trong MineMap*
+
+__Yêu cầu:__
+
+Màn hình console trong IntelliJ phải hiển thị thông tin tương tự hình dưới đây
+
 ![](./materials/mine_sweeper_minemap.png)
+
+### 3.4. Push code lên GitHub
+
+Học viên cần đẩy phần code đã làm lên GitHub để có thể tiếp tục làm việc trên mã nguồn đã làm dở từ nhà hoặc trong các buổi học sau
+
+1. Tạo file .gitignore trong ~/java/TechMaster/mine-sweeper với nội dung sau
+
+```shell
+*.iml
+target
+```
+2. Commit & push code
+
+```shell
+cd ~/java/TechMaster/mine-sweeper
+
+git add -A
+
+git commit --message "Mine-sweeper first commit"
+
+git push origin master
+```
 
