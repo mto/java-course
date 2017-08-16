@@ -81,7 +81,7 @@ Các mảng kiến thức chính của JavaFX sẽ được học dần theo cá
 
 ```java
 import javafx.application.Application;
-im javafx.event.ActionEvent;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
