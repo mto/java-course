@@ -43,13 +43,13 @@ __Bài tập 1:__
 ![](./materials/jdpa_architecture.png)
 
 
-1. JVM kích hoạt *JDPA* agent thông qua option sau
+1. JVM kích hoạt *JPDA* agent thông qua option sau
 
 ```shell
 -agentlib:jdwp=transport=dt_socket,server=y,suspend=n
 ```
 
-2. Debug tool (ex: debug tool trong IntelliJ) kết nối với *JDPA* agent trong JVM chạy chương trình cần debug
+2. Debug tool (ex: debug tool trong IntelliJ) kết nối với *JPDA* agent trong JVM chạy chương trình cần debug
 
 
 __Chú ý:__
@@ -57,6 +57,143 @@ __Chú ý:__
 *Khi ta chạy debug từ IntelliJ thì về bản chất chương trình sẽ được chạy với JVM options như trên để kích hoạt *JDPA* agent*
 
 ## 2. Lập trình giao diện với JavaFX
+
+![](./materials/javafx_logo.png)
+
+JavaFX là một trong các thư viện phục vụ mục đích xây dựng giao diện đồ hoạ cho ứng dụng trên desktop, và được cung cấp sẵn trong Java Core
+
+GUI library trong Java Core:
+
+* Swing/AWT
+* JavaFX
+
+### 2.1. JavaFX trong khoá học
+
+JavaFX được lựa chọn cho khoá học vì các lý do chính sau:
+
+* Layout có thể được cấu hình trong .xml và tạo bằng tool -> Kiến thức nền cho các học viên làm Android hay mobile app nói chung
+* Style/theme có thể được tuỳ chỉnh thông qua CSS -> Kiến thức về front-end cho các học viên làm Java web
+* Có nhiều advanced components so với Swing/AWT
+
+Các mảng kiến thức chính của JavaFX sẽ được học dần theo các bài tập lập trình lớn (tất cả đều cần tạo giao diện) xuyên suốt khoá học.
+
+### 2.2. Chương trình JavaFX đầu tiên
+
+```java
+import javafx.application.Application;
+im javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+/**
+ * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
+ * @date: 8/16/17
+ */
+public class JavaFXMaster extends Application {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        final AtomicInteger counter = new AtomicInteger(0);
+
+        final Button btn = new Button("Click me!");
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                int n = counter.incrementAndGet();
+                System.out.println("Button clicked " + n + "th");
+            }
+        });
+
+        StackPane root = new StackPane();
+        root.getChildren().add(btn);
+
+        primaryStage.setTitle("JavaFXMaster");
+        primaryStage.setScene(new Scene(root, 300, 250));
+        primaryStage.show();
+    }
+
+    public static void main(String[] args){
+        launch(args);
+    }
+}
+```
+
+__Bài tập 2:__
+
+*Tạo module session6 và class JavaFXMaster như trên rồi chạy chương trình*
+
+### 2.3. Method *start*
+
+Một chương trình Java dùng JavaFX sẽ có ràng buộc sau:
+
+* Class chứa hàm *main* chính của ứng dụng phải kế thừa class *javafx.application.Application*
+
+* Hàm *main* thực thi đoạn mã
+
+```java
+    public static void maitring[] args){
+        launch(args);
+    }
+```
+
+Các đoạn mã thực thi trong method *start* có thể được chia thành 3 bước sau:
+
+1. Khởi tạo các Non-UI *object* cho ứng dụng
+
+```java
+final AtomicInteger counter = new AtomicInteger(0);
+```
+
+2. Khởi tạo cấu trúc *tree* UI *object* cho ứng dụng
+
+```java
+        final Button btn = new Button("Click me!");
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                int n = counter.incrementAndGet();
+                System.out.println("Button clicked " + n + "th");
+            }
+        });
+
+        StackPane root = new StackPane();
+        root.getChildren().add(btn);
+
+```
+
+3. Tạo root window hiển thị & gắn cấu trúc *tree* UI *object* vào root window
+
+```java
+        primaryStage.setTitle("JavaFXMaster");
+        primaryStage.setScene(new Scene(root, 300, 250));
+        primaryStage.show();
+```
+
+
+__Bài tập 3:__
+
+*Thêm một Button khác vào JavaFXMaster và tăng giá trị của **counter** mỗi khi người dùng click vào nút này*
+
+### 2.3. Cấu trúc *tree* UI *object*
+
+![](./materials/javafx_ui_tree.gif)
+
+*Mọi giao diện đồ hoạ đều có thể bóc tách thành cấu trúc **tree** gồm các UI component*
+
+Cấu trúc *tree* UI component trong JavaFX sẽ bao gồm các node nằm trong một trong 2 nhóm sau:
+
+1. UI Control
+
+http://docs.oracle.com/javase/8/javafx/user-interface-tutorial/ui_controls.htm#JFXUI336
+
+2. Layout
+
+http://docs.oracle.com/javase/8/javafx/layout-tutorial/index.html
+
+__Bài tập 4:__
+
+*Thêm vào JavaFXMaster các component **Label, TableView**
 
 ## 3. Lập trình game dò mìn
 
@@ -169,6 +306,8 @@ public class GameBoard {
 __Bài tập 7:__
 
 *Tạo class GameBoard trong cùng package với MineSweeper và hoàn thiện các phần TODO*
+
+### 3.4. Hoàn thiện MineSweeper.java
 
 __Bài tập 8:__
 
