@@ -88,6 +88,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
  * @date: 8/16/17
@@ -133,7 +135,7 @@ Một chương trình Java dùng JavaFX sẽ có ràng buộc sau:
 * Hàm *main* thực thi đoạn mã
 
 ```java
-    public static void maitring[] args){
+    public static void main(String[] args){
         launch(args);
     }
 ```
