@@ -96,7 +96,7 @@ Trong quá trình xử lý sự kiện click chuột ta sẽ cần:
 * Lấy thông tin toàn cục về game (ex: số quả mìn đã được cắm cờ,...)
 * Thông tin về tính chất của ô vuông con (ex: ô mìn, ô số, trạng thái hiện tại của ô,...)
 
-Do đó một cách tự nhiên thì từ class **CellClickListener** ta cần access vào các đối tượng của các class **Cell, GameBoard, MineMap**
+Do đó một cách tự nhiên thì từ class **CellClickListener** ta cần access vào các đối tượng của các class **Cell, GameBoard, ImageView**
 
 ```java
 public class CellClickListener implements EventHandler<MouseEvent> {
