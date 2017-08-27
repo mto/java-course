@@ -155,7 +155,7 @@ if(checkUsernamePassword(username, password)){
 Java cung cấp từ khoá *throw* cho phép chủ động tạo ra *exception* với syntax như sau
 
 ```java
-throw AN_INSTANCE_OF_CLASS_java_lang_
+throw AN_INSTANCE_OF_CLASS_java_lang_Throwable
 ```
 
 __Bài tập 5:__
@@ -188,6 +188,9 @@ java -jar ./mine-sweeper-1.0.jar com.techmaster.minesweeper.MineSweeper
 
 * Chọn File -> Project Structure -> Project Settings -> Artifacts
 * Chọn *From module with dependencies* như trong hình trên
+* Điền các thông số trong form như hình dưới, click OK
+
+![](./materials/jar_artifact_form.png)
 
 __Bài tập 6:__
 
