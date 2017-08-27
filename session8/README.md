@@ -155,7 +155,7 @@ if(checkUsernamePassword(username, password)){
 Java cung cấp từ khoá *throw* cho phép chủ động tạo ra *exception* với syntax như sau
 
 ```java
-throw AN_INSTANCE_OF_CLASS_java_lang_Throwable
+throw AN_INSTANCE_OF_CLASS_java_lang_
 ```
 
 __Bài tập 5:__
@@ -165,9 +165,34 @@ __Bài tập 5:__
 ## 2. Hoàn thiện & đóng gói game dò mìn
 
 
-### 2.1. JAR file
+### 2.1. Java Archive
+
+![](./materials/jar_files.png)
 
 https://docs.oracle.com/javase/tutorial/deployment/jar/basicsindex.html
 
-### 2.2. Tạo file chạy
+*.jar* (Java Archive) là cấu trúc file cho phép nhóm nhiều file *.class* trong cùng 1 file.
 
+* Mọi thư viện hay ứng dụng Java sẽ bao gồm một hoặc nhiều file .jar
+* Command để chạy hàm *main* trong *MineSweeper.class* trong file *mine-sweeper-1.0.jar*
+
+```shell
+java -jar ./mine-sweeper-1.0.jar com.techmaster.minesweeper.MineSweeper
+```
+
+### 2.2. Tạo file *mine-sweeper-1.0.jar*
+
+![](./materials/generate_jar_file.png)
+
+Để generate ra file .jar tương ứng với module *mine-sweeper* ta cần làm các bước sau:
+
+* Chọn File -> Project Structure -> Project Settings -> Artifacts
+* Chọn *From module with dependencies* như trong hình trên
+
+__Bài tập 6:__
+
+*Hoàn thiện game dò mìn theo yêu cầu của bài học trước*
+
+__Bài tập 7:__
+
+*Generate ra file mine-sweeper-1.0.jar và chạy trên dòng lệnh*
