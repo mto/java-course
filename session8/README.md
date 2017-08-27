@@ -142,7 +142,7 @@ public class LoginHelper{
 
 public static String login(String username, String password){
 
-if(checkUsernamePassword(username, password)){
+if(!validCredential(username, password)){
     throw new InvalidPasswordException();
 }
 }
