@@ -140,7 +140,7 @@ public void gameOver()
 public void winGame()
 ```
 
-### 1.5. Cải tiến gamemmbmpg
+### 1.5. Cải tiến game
 
 __Bài tập 4:__
 
