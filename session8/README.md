@@ -192,6 +192,8 @@ java -jar ./mine-sweeper-1.0.jar com.techmaster.minesweeper.MineSweeper
 
 ![](./materials/jar_artifact_form.png)
 
+* Chọn Build -> Build Artifacts...
+
 __Bài tập 6:__
 
 *Hoàn thiện game dò mìn theo yêu cầu của bài học trước*
