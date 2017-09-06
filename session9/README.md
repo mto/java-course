@@ -91,7 +91,7 @@ mvn clean install
 
 __Bài tập 2:__
 
-*Chaỵ lần lượt các câu lệnh sau và chú ý các dòng log **Installing...** trên console của Maven*
+*Chaỵ lần lượt các câu lệnh sau và chú ý các dòng log **Downloaded, Installed...** trên console của Maven*
 
 ```shell
 mvn clean install
@@ -250,3 +250,66 @@ public class MathUtilTest {
 ```shell
 mvn clean test
 ```
+
+## 2.3. Html parser với *jsoup*
+
+Trong phần này, học viên được yêu cầu hoàn thiện class *HtmlParser*, sử dụng thư viện *jsoup* và cho phép bóc tách thông tin từ dữ liệu đầu vào có định dạnh HTML.
+
+Việc sử dụng thư viện *jsoup* sẽ là kiến thức nền cho việc phát triển ứng dụng *vscrapper* trong các buổi học tới
+
+https://jsoup.org/
+
+__Bài tập 6:__
+
+*Tạo các class HtmlParser, HtmlParserTest như dưới đây và hoàn thiện phần TODO, sau đó chạy test thông qua Maven từ terminal*
+
+```java
+package com.techmaster.junitsample;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
+/**
+ * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
+ * @date: 06/09/2017
+ */
+public class HtmlParser {
+
+    private final Document htmlDoc;
+
+    public HtmlParser(String htmlSrc){
+        htmlDoc = Jsoup.parse(htmlSrc);
+    }
+
+    public int countTag(String tagName){
+        //TODO: Count the number of tags (<a>, <div>,<src>,....)
+        return 0;
+    }
+
+}
+```
+
+```java
+package com.techmaster.junitsample;
+
+import org.junit.Test;
+
+/**
+ * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
+ * @date: 06/09/2017
+ */
+public class HtmlParserTest {
+
+    @Test
+    public void countTag(){
+        HtmlParser p = new HtmlParser("<html><head></head><body><div>abcdefgh</div><div>mnpqrs</div><br><br></body></html>");
+        //TODO: Write more asserts with p
+    }
+}
+```
+
+__Bài tập 7:__
+
+*Tìm hiểu thư viện **jsoup** và phát triển thêm các method, test unit tương ứng trong HtmlParser, HtmlParserTest*
+
+https://jsoup.org/apidocs/
