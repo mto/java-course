@@ -253,6 +253,8 @@ mvn clean test
 
 ## 2.3. Html parser với *jsoup*
 
+![](./materials/jsoup_logo.jpg)
+
 Trong phần này, học viên được yêu cầu hoàn thiện class *HtmlParser*, sử dụng thư viện *jsoup* và cho phép bóc tách thông tin từ dữ liệu đầu vào có định dạnh HTML.
 
 Việc sử dụng thư viện *jsoup* sẽ là kiến thức nền cho việc phát triển ứng dụng *vscrapper* trong các buổi học tới
