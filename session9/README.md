@@ -258,7 +258,7 @@ mvn clean test
 Trong phần này, học viên được yêu cầu hoàn thiện:
 
 * *HtmlParser*: Util class sử dụng thư viện *jsoup* và cho phép bóc tách thông tin từ dữ liệu đầu vào có định dạng HTML.
-* *HtmlParserTest*: Test unit cho các methods trong *HtmlParser*
+* *HtmlParserTest*: Unit test cho các methods trong *HtmlParser*
 
 Việc sử dụng thư viện *jsoup* sẽ là kiến thức nền cho việc phát triển ứng dụng *vscrapper* trong các buổi học tới
 
