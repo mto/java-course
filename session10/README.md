@@ -164,8 +164,8 @@ __Bài tập 3:__
 
 Để có thể lấy được dữ liệu HTML của 1 website, trước hết ta cần tìm hiểu các HTTP requests được thực thi khi người dùng truy cập vào website. Có thể sử dụng các công cụ sau để *soi* website bất kỳ
 
-*Chrome*: Inspect tool
-*Firefox*: Firebug
+* *Chrome*: Inspect tool
+* *Firefox*: Firebug
 
 ![](./materials/vnexpress_firebug.png)
 
