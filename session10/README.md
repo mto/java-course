@@ -177,7 +177,7 @@ __Bài tập 4:__
 
 
 ```java
-    HttpClient = new DefaultHttpClient();
+    HttpClient httpClient = new DefaultHttpClient();
 
     String reqURL = "http://vnexpress.net";
 
