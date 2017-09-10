@@ -184,7 +184,7 @@ __Bài tập 4:__
     try {
         HttpGet req = new HttpGet(reqURL);
 
-        return httpClient.execute(req, new ResponseHandler<String>() {
+        String html = httpClient.execute(req, new ResponseHandler<String>() {
             @Override
             public String handleResponse(HttpResponse httpResponse) throws IOException {
                 return EntityUtils.toString(httpResponse.getEntity()).trim();
