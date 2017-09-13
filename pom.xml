@@ -19,6 +19,8 @@
         <module>session7</module>
         <module>session8</module>
         <module>session9</module>
+        <module>session10</module>
+        <module>session11</module>
     </modules>
 
     <build>
