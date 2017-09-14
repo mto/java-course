@@ -210,16 +210,33 @@ https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
 
 WebDriver đóng vai trò của *browser* được sử dụng để truy cập vào website.
 
-Để khởi tạo *instance* của WebDriver có thể dùng một trong các lựa chọn sau
+Để khởi tạo *instance* của WebDriver ta cần:
+
+* Tải *driver* ứng với trình duyệt được dùng cho *automation*
+* Sử dụng một trong các constructor ứng với trình duyệt được dùng cho *automation*
 
 ```java
-        new ChromeDriver();
-        new FirefoxDriver();
-        new SafariDriver();
-        new PhantomJSDriver();
+    new ChromeDriver();
+    new FirefoxDriver();
+    new SafariDriver();
+    new PhantomJSDriver();
         
 ```
 
+*Tải driver cho Chrome*
+
+https://sites.google.com/a/chromium.org/chromedriver/
+
+*Dùng ChromeDriver*
+
+```java
+   String chromeDriverFile = "ABSOLUTE_PATH_TO_CHROME_DRIVER_FILE"
+   ChromeDriverService cs = new ChromeDriverService.Builder()
+            .usingDriverExecutable(new File(chromeDriverFile))
+            .build();
+
+   WebDriver browser = new ChromeDriver(cs);
+```
 ### 2.3. WebElement
 
 Class *org.openqa.selenium.WebElement* được sử dụng để mô phỏng DOM element trong cấu trúc HTML của 1 website, với các method chính sau:
