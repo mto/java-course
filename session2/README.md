@@ -1,7 +1,6 @@
 * Làm việc với *String*
 * *Class* & *method*
 * *package* trong Java
-* Đọc & ghi file
 
 ## 1. Làm việc với String
 
@@ -347,7 +346,7 @@ JAVA_CORE_LIBRARY := JavaSE packages
 JavaSE package := JavaSE classes
 ```
 
-## 4. Đọc & ghi file trong Java - Part 1
+### 3.3. Package *java.io*
 
 ![](./materials/java_io_package.png)
 

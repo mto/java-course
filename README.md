@@ -25,107 +25,113 @@ Mỗi buổi học học viên sẽ được giao các bài tập thực hành g
 
 4. Làm việc với *String* trong Java
 
-5. Sơ lược về các khái niệm *object*, *class* và *method* trong Java
+5. *Class* & *method*
 
-6. Đọc/ghi file với Java
+6. *package* trong Java
 
 ### Bài 3:
 
-7. Input/Output của chương trình
+7. *Class* & *object* & *method*
 
-8. Cấu trúc dữ liệu *array*, *list* và *map*
+8. Cấu trúc *array*
 
-9. Đọc/ghi file với Java
+9. Lập trình game *3 cây*
 
 ### Bài 4:
 
-10. *Collection Framework* trong *java.util*
+10. Sử dụng IntelliJ
 
-11. *Exception* trong Java
+11. Collections Framework trong *java.util*
 
-12. Cài đặt và sử dụng *IntelliJ Community*
+12. Ứng dụng *PhotoGallery*
 
 ### Bài 5:
 
-13. Khái niệm *object-oriented*
+13. Class & Inheritance
 
-14. *class* và *inheritance* trong Java
+14. Sử dụng *Git* & *GitHub*
 
-15. Lập trình game dò mìn *Mine Sweeper*
-
-16. Dùng *Git* để quản lý source code
+15. Lập trình game dò mìn - P1
 
 ### Bài 6:
 
-17. *JavaFX*
+16. Debug trong Java
 
-18. *Debug* chương trình Java
+17. Lập trình giao diện với JavaFX
 
-19. Cải tiến game dò mìn *Mine Sweeper*
+18. Lập trình game dò mìn - P2
 
 ### Bài 7:
 
-20. *Logging* trong Java
+19. *event handling* trong JavaFX
 
-21. Internationalization & Localization
-
-22. Cải tiến game *Mine Sweeper*
+20. Lập trình game dò mìn - P3
 
 ### Bài 8:
 
-23. Sơ lược về *Maven*
+21. *exception* trong Java
 
-24. Tổ chức Java project với Maven
-
-25. Hoàn thiện và đóng gói game dò mìn *Mine Sweeper*
+22. Hoàn thiện & đóng gói game dò mìn
 
 ### Bài 9:
 
-26. JUnit
+23. Cài đặt & sử dụng Maven
 
-27. Sơ lược về *annotation* và *reflection* trong Java
-
-28. Các command Maven cơ bản
+24. JUnit
 
 ### Bài 10:
 
-29. Selenium
+25. Maven Dependencies Management
 
-30. Viết ứng dụng scrap content *vscraper*
+26. Debug JUnit test
+
+27. Ứng dụng *vscraper* - P1
+
+28. Làm việc với Apache HTTP Client
 
 ### Bài 11:
 
-31. Sơ lược về *JDBC*
+29. Đọc & ghi file
 
-32. Kết nối ứng dụng *vscraper* với MySQL
+30. Selenium
+
+31. Ứng dụng *vscraper* - P2
 
 ### Bài 12:
 
-34. Sơ lược về *thread* trong Java
+32. Cài đặt & sử dụng MySQL
 
-35. Hoàn thiện ứng dụng *vscraper*
+33. JDBC - Java Database Connectivity
+
+34. Sử dụng thư viện *jsoup*
+
+35. Ứng dụng *vscraper* - P3
 
 ### Bài 13:
 
-35. *Generics* trong Java
+36. *thread* trong Java
 
-36. Ứng dụng *music-torrent* quản lý file nhạc trên máy
+37. *logging* trong Java
+
+38. Ứng dụng *vscraper* - P4
 
 ### Bài 14:
 
-37. Lập trình Socket với *java.net*
+39. Servlet API
 
-38. Mô hình *acceptor* và *worker*
+40. Apache Tomcat
 
 ### Bài 15:
 
-39. Tích hợp Socket vào ứng dụng *music-torrent*
+41. Debug web application trên Tomcat
 
-40. Sử dụng công cụ *VisualVM*
+42. Ứng dụng *vscraper-web* - P1
 
 ### Bài 16:
 
-41. Hoàn thiện ứng dụng *music-torrent*
+43. Template engine
 
-42. Định hướng nghề nghiệp
+44. Hoàn thiện ứng dụng *vscraper-web* - P2
+
+45. Định hướng nghề nghiệp
 
