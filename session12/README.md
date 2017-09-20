@@ -189,9 +189,11 @@ Trong cấu trúc packages của Java Core thì JDBC được tổ chức trong 
 * *java.sql*: https://docs.oracle.com/javase/8/docs/api/java/sql/package-summary.html
 * *javax.sql*: https://docs.oracle.com/javase/8/docs/api/javax/sql/package-summary.html
 
-### 2.2. JDBC connector
+### 2.2. JDBC Drivers
 
-*Danh sách các thư viện JDBC connectors theo RDBMS*
+JDBC làm việc một cách gián tiếp với DBMS, thông qua các thư viện *driver* được cung cấp bởi nhà cung cấp DBMS
+
+*Danh sách các thư viện JDBC drivers theo RDBMS*
 
 |RDBMS|JDBC connector|
 |---|---|
@@ -199,8 +201,9 @@ Trong cấu trúc packages của Java Core thì JDBC được tổ chức trong 
 |PostgreSQL|https://mvnrepository.com/artifact/org.postgresql/postgresql|
 |OracleDB|http://www.oracle.com/technetwork/database/application-development/index-099369.html|
 
-
 ### 2.3. Kết nối Java application với MySQL
+
+Để có thể kết nối Java application với MySQL, ta cần khai báo thư viện *JDBC driver* cho MySQL trong Maven
 
 ```xml
 <dependency>
@@ -210,29 +213,106 @@ Trong cấu trúc packages của Java Core thì JDBC được tổ chức trong 
 </dependency>
 ```
 
-### 2.4. java.sql.Connection
+__Bài tập 6:__
 
-### 2.5. java.sql.Statement
+*Tạo Maven project **session12** với khai báo dependency như trên và chạy command Maven sau*
 
-### 2.6. java.sql.PreparedStatement
+```shell
+mvn clean install
+```
+
+### 2.4. Tạo *connection* với MySQL
+
+JDBC sử dụng class *java.sql.Connection* để mô phỏng connection giữa Java application và DBMS, mọi command tương tác với DBMS đều được gửi qua *connection*
+<br><br>
+
+```java
+package com.techmaster.javacourse;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+/**
+ * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
+ * @date: 20/09/2017
+ */
+public class JDBCMaster {
+
+    private final String username;
+
+    private final String password;
+
+    private final String schema;
+
+    private final String dbURL;
+
+    public JDBCMaster(){
+        this("techmaster", "java-course123", "vscraper");
+    }
+
+    public JDBCMaster(String username, String password, String schema){
+        this.username = username;
+        this.password = password;
+        this.schema = schema;
+
+        this.dbURL = "jdbc:mysql://localhost:3306/" + schema;
+
+        initDriver();
+    }
+
+    private void initDriver(){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
+
+    public Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(dbURL, username, password);
+    }
+
+    public static void main(String[] args) throws Exception {
+        JDBCMaster jdbcm = new JDBCMaster();
+
+        System.out.println(jdbcm.getConnection());
+    }
+}
+```
+
+__Bài tập 7:__
+
+*Tạo class JDBCMaster như trên, sau đó debug với break-point ở dòng System.out.println, kiểm tra các connection trong mục Server Status trên MySQL Workbench*
+
+<br><br>
+![](./materials/server_status.png)
+
+### 2.5. CRUD operations
+
+Các CRUD operations thông qua JDBC được thực thi bằng cách gửi các câu lệnh SQL tới DBMS thông qua *connection*
+
+JDBC sử dụng *statement* để mô phỏng các query SQL được gửi tới DBMS. Đoạn mã dưới đây minh họa việc tạo *statement* từ *connection*
+
+```java
+    Connection con = jdbcm.getConnection();
+    PreparedStatement ps = con.prepareStatement("SELECT link FROM news_articles WHERE origin='vnexpress';");
+```
+
+Để thực thi CRUD operations ta sử dụng một trong các method sau trên object java.sql.PreparedStatement
+
+* execute()
+* executeQuery()
+* executeUpdate()
+
+__Bài tập 8:__
+
+*Thực thi các query SQL đã làm ở phần 1 trên JDBCMaster*
 
 ## 3. Ứng dụng *vscraper*
 
-### 3.1. Tạo *schema* & *user*
+Các học viên được yêu cầu tích hợp MySQL vào ứng dụng *vscraper*. Các dữ liệu bóc tách từ HTML có thể được lưu trữ và truy vấn thông qua MySQL
 
-* Tạo schema *vscraper*
-* Tạo user *techmaster*
-* Phân quyền cho *techmaster* trên *vscraper*
+__Bài tập 9:__
 
-### 3.2. Tạo bảng trong *vscraper*
-
-Tạo các bảng trong *vscraper*
-
-* *websites*
-* *video_links*
-* *news_articles*
-* *sport_articles*
-
-### 3.3. Bóc tách dữ liệu và lưu vào *vscraper*
-
-Dùng Jsoup tách dữ liệu từ các file .html và lưu vào *vscraper*
+*Dùng Jsoup tách dữ liệu từ các file .html và lưu vào các bảng trong schema **vscraper***
