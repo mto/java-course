@@ -305,9 +305,73 @@ JDBC sử dụng *statement* để mô phỏng các query SQL được gửi t�
 * executeQuery()
 * executeUpdate()
 
+```java
+        List<String> links = new LinkedList<String>();
+        try {
+            Connection con = jdbcm.getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT link FROM news_articles WHERE origin='vnexpress';");
+
+            ResultSet res = ps.executeQuery();
+            while(res.next()){
+                links.add(res.getString(1));
+            }
+        }catch (Exception ex){
+
+        }
+
+        return links;
+
+```
+
 __Bài tập 8:__
 
 *Thực thi các query SQL đã làm ở phần 1 trên JDBCMaster*
+
+### 2.6. Parameters trong SQL query
+
+Xét trường hợp ta cần implement method *getNewsLinks* với tham số *fromSource* như dưới đây
+
+```java
+    public List<String> getNewsLinks(String fromSource){
+    }
+```
+
+Trong trường hợp này vẫn có thể dùng phương pháp cộng chuỗi để tạo query như sau đây
+
+```java
+String sql = "SELECT link FROM news_articles WHERE origin='" + fromSource + "';";
+```
+
+Tuy vậy, phương án cộng chuỗi này có nhược điểm là performance không tốt vì các lý do sau đây:
+
+* JDBC sẽ coi các query với tham số *fromSource* khác nhau là khác nhau
+* JDBC sẽ phải *pre-compile* mỗi query mới
+
+Giải pháp tốt hơn trong trường hợp này là sử dụng SQL query với tham số như đoạn code dưới đây
+
+```java
+    public List<String> getNewsLinks(String fromSource){
+        List<String> links = new LinkedList<String>();
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT link FROM news_articles WHERE origin=?;");
+
+
+            ResultSet res = ps.executeQuery();
+            while(res.next()){
+                links.add(res.getString(1));
+            }
+        }catch (Exception ex){
+
+        }
+
+        return links;
+    }
+```
+
+__Bài tập 8+:__
+
+*Tạo các method trong JDBCMaster cho phép truy vấn các bài viết theo từ khóa trong nội dung hoặc trong title*
 
 ## 3. Ứng dụng *vscraper*
 

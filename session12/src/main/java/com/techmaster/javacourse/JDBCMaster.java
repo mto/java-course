@@ -1,6 +1,8 @@
 package com.techmaster.javacourse;
 
 import java.sql.*;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author <a href="hoang281283@gmail.com">Minh Hoang TO</a>
@@ -40,6 +42,24 @@ public class JDBCMaster {
 
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(dbURL, username, password);
+    }
+
+    public List<String> getNewsLinks(String fromSource){
+        List<String> links = new LinkedList<String>();
+        try {
+            Connection con = getConnection();
+            PreparedStatement ps = con.prepareStatement("SELECT link FROM news_articles WHERE origin=?;");
+
+
+            ResultSet res = ps.executeQuery();
+            while(res.next()){
+                links.add(res.getString(1));
+            }
+        }catch (Exception ex){
+
+        }
+
+        return links;
     }
 
     public static void main(String[] args) throws Exception {
