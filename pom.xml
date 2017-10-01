@@ -23,6 +23,7 @@
         <module>session11</module>
         <module>session12</module>
         <module>session14</module>
+        <module>session15</module>
     </modules>
 
     <build>
